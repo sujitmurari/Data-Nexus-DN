@@ -68,6 +68,18 @@
     </div>
 
     <div class="projects-grid">
+      <!-- ===========================
+LIVE DASHBOARD EXPLORER
+=========================== -->
+
+<div class="section-header fade-in" style="margin-top:3rem;">
+  <div class="section-title"><span class="num">◈</span> EXPLORE DASHBOARDS</div>
+  <div class="header-line"></div>
+</div>
+
+<div class="glow-card" style="padding:1rem;">
+  <div id="dashboard-container" style="width:100%;height:720px;"></div>
+</div>
 
       <!-- PROJECT 1 -->
       <div class="glow-card bracket-card project-card fade-in stagger-1">
@@ -254,6 +266,15 @@
     </div>
 
   </main>
+  <!-- EXPLORE DASHBOARDS -->
+<div class="section-header fade-in" style="margin-top:3rem;">
+  <div class="section-title"><span class="num">◈</span> LIVE TABLEAU DASHBOARD VIEWER</div>
+  <div class="header-line"></div>
+</div>
+
+<div class="glow-card" style="padding:1rem;margin-top:1rem;">
+  <div id="dashboard-container" style="width:100%;height:700px;"></div>
+</div>
 
   <footer class="footer">
     <div class="footer-left"><span>[DN]</span> DATANEXUS v2.0 — <span>SUJIT MURARI</span></div>
@@ -300,6 +321,48 @@
 
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+</script>
+  <script src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+  <script>
+
+function openDashboard(type){
+
+let url=""
+
+if(type==="flights"){
+url="https://public.tableau.com/views/FlightsDashboard_17704030931600/FlightsDashboard"
+}
+
+if(type==="ecommerce"){
+url="https://public.tableau.com/views/IndianE-CommercePricingRevenuePerformanceDashboard/Dashboard1"
+}
+
+if(type==="gym"){
+url="https://public.tableau.com/views/GymPerformanceWorkoutEfficiencyAnalyticsDashboard/GymPerformanceWorkoutEfficiencyAnalyticsDashboard"
+}
+
+if(type==="retail"){
+url="https://public.tableau.com/views/DecathlonIndia_17704793519210/DecthlonIndia"
+}
+
+const container=document.getElementById("dashboard-container")
+
+container.innerHTML="Loading dashboard..."
+
+const viz=document.createElement("tableau-viz")
+
+viz.setAttribute("src",url)
+viz.setAttribute("width","100%")
+viz.setAttribute("height","700")
+viz.setAttribute("toolbar","bottom")
+
+container.innerHTML=""
+container.appendChild(viz)
+
+container.scrollIntoView({behavior:"smooth"})
+
+}
+
 </script>
 </body>
 </html>
