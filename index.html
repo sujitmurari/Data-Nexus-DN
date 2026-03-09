@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./style.css">
   <style>
     /* CRITICAL: Structural fallback before full CSS loads */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -218,7 +218,14 @@
 
 </div><!-- end site-wrapper -->
 
-<script src="./assets/js/loader.js"></script>
-<script src="./assets/js/script.js"></script>
+<script src="./loader.js"></script>
+<script src="./script.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof runBootSequence === "function") {
+    runBootSequence();
+  }
+});
+</script>
 </body>
 </html>
