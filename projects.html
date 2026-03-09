@@ -18,6 +18,7 @@
     #site-wrapper.visible{opacity:1}
   </style>
 </head>
+  
 <body>
 
 <div id="site-wrapper">
@@ -354,6 +355,48 @@ const viz=document.createElement("tableau-viz")
 viz.setAttribute("src",url)
 viz.setAttribute("width","100%")
 viz.setAttribute("height","700")
+viz.setAttribute("toolbar","bottom")
+
+container.innerHTML=""
+container.appendChild(viz)
+
+container.scrollIntoView({behavior:"smooth"})
+
+}
+
+</script>
+  <script src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+  <script>
+
+function openDashboard(type){
+
+let dashboardURL=""
+
+if(type==="flights"){
+dashboardURL="https://public.tableau.com/views/FlightsDashboard_17704030931600/FlightsDashboard"
+}
+
+if(type==="ecommerce"){
+dashboardURL="https://public.tableau.com/views/IndianE-CommercePricingRevenuePerformanceDashboard/Dashboard1"
+}
+
+if(type==="gym"){
+dashboardURL="https://public.tableau.com/views/GymPerformanceWorkoutEfficiencyAnalyticsDashboard/GymPerformanceWorkoutEfficiencyAnalyticsDashboard"
+}
+
+if(type==="retail"){
+dashboardURL="https://public.tableau.com/views/DecathlonIndia_17704793519210/DecthlonIndia"
+}
+
+const container=document.getElementById("dashboard-container")
+
+container.innerHTML="Loading dashboard..."
+
+const viz=document.createElement("tableau-viz")
+
+viz.setAttribute("src",dashboardURL)
+viz.setAttribute("width","100%")
+viz.setAttribute("height","720")
 viz.setAttribute("toolbar","bottom")
 
 container.innerHTML=""
